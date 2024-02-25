@@ -88,10 +88,10 @@ class Solution(object):
         permutations_list = [list(collection) for collection in unique]
         return permutations_list
     
-    def getPermutation(self, n: int, k: int) -> str:
+    def getPermutation(self, n: int, k:int) -> str:
         """
         LeetCode № 60.
-        Returns a string made from k-th permutation of range(1, n+1).
+        Returns k-th permutation of a list made of range(1, n+1).
         """
         permutation_sequence = list(itertools.permutations(range(1, n+1)))
         permutation_tuple = permutation_sequence[k-1]
