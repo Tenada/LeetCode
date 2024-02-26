@@ -12,7 +12,7 @@ class Solution(object):
         distinct_triplets = [list(triplet) for triplet in zero_triplets]
 
         # Empty list is false.
-        return distinct_triplets
+        return distinct_triplets #!!
 
 
 solution = Solution()
