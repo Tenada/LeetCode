@@ -88,6 +88,23 @@ class Solution(object):
         permutations_list = [list(collection) for collection in unique]
         return permutations_list
     
+    def can_jump(self, nums: list[int]) -> bool:
+        """
+        LeetCode № 55.
+        Returns if the end of the list is reachable.
+        List value is the length of 'jump'.
+        """
+        reachable = 0
+        for index, jump in enumerate(nums):
+            if index+jump >= reachable:
+                 reachable = index+jump
+
+            # One can reach here, but not further.
+            if index == reachable:
+                break
+            
+        return reachable >= len(nums) - 1
+    
     def getPermutation(self, n: int, k:int) -> str:
         """
         LeetCode № 60.
