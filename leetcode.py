@@ -1,5 +1,23 @@
 import itertools
 
+class Stack():
+    """Implementation of a stack. Used in № 20."""
+    def __init__(self):
+        self.stack = []
+
+    def push(self, val):
+        self.stack.append(val)
+
+    def pop(self):
+        # Can not pop an empty list.
+        if not self.stack:
+            return None
+            
+        return self.stack.pop(-1)
+    
+    def empty(self):
+        return not self.stack
+
 class Solution(object):
     def two_sum(self, nums: list[int], target: int) -> list[int]:
         """
@@ -68,7 +86,35 @@ class Solution(object):
         if str(x) == str(x)[::-1]:
             return True
         else:
+            return False 
+
+    def isValid(self, s: str) -> bool:
+        """
+        LeetCode № 20.
+        Returns if open brackets are closed in the correct order.
+        """
+        # Pairwise brackets are even.
+        if len(s)%2 != 0:
             return False
+
+        stack = Stack()
+
+        # Reversed to use dictionary's defauls get() method.
+        pairwise = {")":"(", "}":"{", "]":"["}
+
+        for bracket in s:
+            if bracket == "(" or bracket == "[" or bracket == "{":
+                stack.push(bracket)
+
+            elif bracket == ")" or bracket == "]" or bracket == "}":
+                if not pairwise.get(bracket) == stack.pop():
+                    return False
+
+        # Non-empty stack means not every parethesis is closed.
+        if not stack.empty():
+            return False  
+            
+        return True
 
     def permute(self, nums: list[int]) -> list[int]:
         """
