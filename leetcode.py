@@ -115,6 +115,29 @@ class Solution(object):
             return False  
             
         return True
+    
+    def removeDuplicates(self, nums):  
+        """
+        LeetCode № 26.
+        Returns the number of unique elements in nums.
+        Replaces non-unique elements with '_'.
+        """
+        # Right pointer of a list slice can not be 0.    
+        i = 1
+
+        while i < len(nums):
+            num = nums[i]
+
+            # No need to continue if there are no ints left.
+            if num == "_":
+                return len(nums[0:i])
+
+            if num in nums[0:i]: 
+                nums.remove(num)
+                nums.append("_")
+                i -= 1
+                
+            i += 1
 
     def permute(self, nums: list[int]) -> list[int]:
         """
