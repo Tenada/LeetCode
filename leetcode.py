@@ -29,6 +29,7 @@ class Solution(object):
             for key_2, value_2 in enums:
                 if (key_1 != key_2) and (value_1 + value_2 == target):
                     return [key_1, key_2]
+                
 
     def length_of_longest_substring(self, s: str) -> int:
         """
@@ -64,6 +65,7 @@ class Solution(object):
 
         return max(longest, len(unrepeated))
 
+
     def median_sorted_arrays(self, nums1: list[int], nums2: list[int]) -> float:
         """
         LeetCode № 4.
@@ -78,6 +80,7 @@ class Solution(object):
         else: # Even.
             return float(nums[half] + nums[half - 1]) / 2
 
+
     def is_palindrome(self, x: int) -> bool:
         """
         LeetCode № 9.
@@ -87,6 +90,7 @@ class Solution(object):
             return True
         else:
             return False 
+
 
     def isValid(self, s: str) -> bool:
         """
@@ -116,6 +120,7 @@ class Solution(object):
             
         return True
     
+
     def removeDuplicates(self, nums):  
         """
         LeetCode № 26.
@@ -139,6 +144,7 @@ class Solution(object):
                 
             i += 1
 
+
     def permute(self, nums: list[int]) -> list[int]:
         """
         LeetCode № 46.
@@ -146,6 +152,7 @@ class Solution(object):
         The list contains distinct numbers only.
         """
         return list(itertools.permutations(nums, r = None))
+
 
     def permute_unique(self, nums: list[int]) -> list[list[int]]:
         """
@@ -157,6 +164,7 @@ class Solution(object):
         permutations_list = [list(collection) for collection in unique]
         return permutations_list
     
+
     def can_jump(self, nums: list[int]) -> bool:
         """
         LeetCode № 55.
@@ -174,6 +182,7 @@ class Solution(object):
             
         return reachable >= len(nums) - 1
     
+
     def getPermutation(self, n: int, k:int) -> str:
         """
         LeetCode № 60.
@@ -183,3 +192,17 @@ class Solution(object):
         permutation_tuple = permutation_sequence[k-1]
         permutation_string = "".join(str(element) for element in permutation_tuple)
         return permutation_string
+    
+    
+    def searchMatrix(self, matrix: list[list[int]], target: int) -> bool:
+        """
+        LeetCode № 74.
+        Returns true if target in matrix, else False.
+        O(log(m * n)) time complexity.
+        """
+        for matrix_line in matrix:
+            if target <= matrix_line[-1] and target in matrix_line:
+                return True
+                
+        return False
+    
